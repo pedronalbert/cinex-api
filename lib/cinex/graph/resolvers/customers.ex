@@ -1,6 +1,5 @@
 defmodule Cinex.Graph.Resolvers.Customers do
-  require Logger
-
+  alias Cinex.Repo
   alias Cinex.Repository.Entities.Customer
   alias Cinex.Repository.Customers
 
