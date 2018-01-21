@@ -1,9 +1,8 @@
-defmodule Cinex.Repo.Migrations.CreateMoviesCasts do
+defmodule Cinex.Repo.Migrations.CreateDirectors do
   use Ecto.Migration
 
   def change do
-    create table(:movies_casts) do
-      add :name, :string
+    create table(:directors) do
       add :artist_id, references(:artists)
       add :movie_id, references(:movies)
     end
