@@ -1,10 +1,6 @@
 defmodule Cinex.Repository.Cinemas do
   alias Cinex.Repo
-  alias __MODULE__.Cinema
-
-  def all() do
-    { :ok, Cinema |> Repo.all }
-  end
+  alias Cinex.Repository.Entities.Cinema
 
   def create(attrs) do
     %Cinema{} |> Cinema.changeset(attrs) |> Repo.insert()
@@ -22,18 +18,5 @@ defmodule Cinex.Repository.Cinemas do
     |> Cinema.changeset(attrs)
 
     Repo.update(changeset)
-  end
-
-  def test_creation do
-    require IEx
-    alias Ecto.Multi
-
-    Multi.new
-    |> Multi.insert(:cinema, Cinema.changeset(%Cinema{}, %{name: "Testingcito"}))
-    |> Multi.run(:seats, fn %{cinema: cinema} ->
-      IEx.pry
-      {:ok, %{}}
-    end)
-    |> Cinex.Repo.transaction
   end
 end

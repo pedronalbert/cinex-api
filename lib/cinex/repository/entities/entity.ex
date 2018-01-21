@@ -1,4 +1,4 @@
-defmodule Cinex.Repository.Schema do
+defmodule Cinex.Repository.Entities.Entity do
   defmacro __using__(_opts) do
     quote do
       use Ecto.Schema

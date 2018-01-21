@@ -1,7 +1,7 @@
-defmodule Cinex.Repository.Seats.Seat do
-  use Cinex.Repository.Schema
+defmodule Cinex.Repository.Entities.Seat do
+  use Cinex.Repository.Entities.Entity
 
-  alias Cinex.Repository.Rooms.Room
+  alias Cinex.Repository.Entities.Room
 
   @castable_keys [:row, :col, :room_id]
   @required_keys [:row, :col, :room_id]

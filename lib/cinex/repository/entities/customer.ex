@@ -1,7 +1,7 @@
-defmodule Cinex.Repository.Customers.Customer do
+defmodule Cinex.Repository.Entities.Customer do
   alias Cinex.Repository.Rooms.Room
 
-  use Cinex.Repository.Schema
+  use Cinex.Repository.Entities.Entity
 
   @castable_keys [:email, :password, :first_name, :last_name, :dni, :birthdate]
 

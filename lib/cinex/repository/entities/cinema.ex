@@ -1,7 +1,7 @@
-defmodule Cinex.Repository.Cinemas.Cinema do
-  use Cinex.Repository.Schema
+defmodule Cinex.Repository.Entities.Cinema do
+  use Cinex.Repository.Entities.Entity
 
-  alias Cinex.Repository.Rooms.Room
+  alias Cinex.Repository.Entities.Room
 
   @castable_keys [:name]
   @required_keys [:name]

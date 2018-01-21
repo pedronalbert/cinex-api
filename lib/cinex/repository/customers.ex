@@ -4,11 +4,7 @@ defmodule Cinex.Repository.Customers do
   """
 
   alias Cinex.Repo
-  alias __MODULE__.Customer
-
-  def list do
-    {:ok, Customer |> Repo.all}
-  end
+  alias Cinex.Repository.Entities.Customer
 
   def create(attrs) do
     %Customer{} |> Customer.changeset(attrs) |> Repo.insert()

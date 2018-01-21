@@ -4,8 +4,7 @@ defmodule Cinex.Repository.Rooms do
   """
 
   alias Cinex.Repo
-  alias Cinex.Repository.Seats.Seat
-  alias __MODULE__.Room
+  alias Cinex.Repository.Entities.{Room, Seat}
   alias Ecto.Multi
 
   def create(attrs) do

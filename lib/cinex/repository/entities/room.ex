@@ -1,12 +1,11 @@
-defmodule Cinex.Repository.Rooms.Room do
+defmodule Cinex.Repository.Entities.Room do
   @moduledoc """
   room entity
   """
 
-  use Cinex.Repository.Schema
+  use Cinex.Repository.Entities.Entity
 
-  alias Cinex.Repository.Cinemas.Cinema
-  alias Cinex.Repository.Seats.Seat
+  alias Cinex.Repository.Entities.{Cinema, Seat}
 
   @castable_keys [:name, :cinema_id]
   @required_keys [:name, :cinema_id]
