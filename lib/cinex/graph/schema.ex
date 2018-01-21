@@ -2,57 +2,32 @@ defmodule Cinex.Graph.Schema do
   @moduledoc """
     Graph schema
   """
-
   use Absinthe.Schema
 
+  # Import Types
   import_types Cinex.Graph.ContentTypes
 
-  alias Cinex.Graph.Resolvers.{Customers, Cinemas, Rooms}
+  # Import Queries
+  import_types Cinex.Graph.Queries.Artists
+  import_types Cinex.Graph.Queries.Cinemas
+  import_types Cinex.Graph.Queries.Customers
+
+  # Import Mutations
+  import_types Cinex.Graph.Mutations.Cinemas
+  import_types Cinex.Graph.Mutations.Customers
+  import_types Cinex.Graph.Mutations.Rooms
+  import_types Cinex.Graph.Mutations.Artists
 
   query do
-    field :customers, list_of(:customer) do
-      resolve &Customers.list/3
-    end
-
-    field :cinemas, list_of(:cinema) do
-      resolve &Cinemas.list/3
-    end
+    import_fields :cinemas_queries
+    import_fields :customers_queries
+    import_fields :artists_queries
   end
 
   mutation do
-    field :create_customer, type: :customer do
-      arg :first_name, non_null(:string)
-      arg :last_name, non_null(:string)
-
-      resolve &Customers.create_customer/3
-    end
-
-    field :create_cinema, type: :cinema do
-      arg :name, non_null(:string)
-
-      resolve &Cinemas.create/3
-    end
-
-    field :delete_cinema, :string do
-      arg :id, non_null(:integer)
-
-      resolve &Cinemas.delete/3
-    end
-
-    field :update_cinema, type: :cinema do
-      arg :id, :id
-      arg :name, non_null(:string)
-
-      resolve &Cinemas.update/3
-    end
-
-    field :create_room, type: :room do
-      arg :name, non_null(:string)
-      arg :cols, non_null(:integer)
-      arg :rows, non_null(:integer)
-      arg :cinema_id, non_null(:integer)
-
-      resolve &Rooms.create/3
-    end
+    import_fields :cinemas_mutations
+    import_fields :customers_mutations
+    import_fields :artists_mutations
+    import_fields :rooms_mutations
   end
 end

@@ -30,4 +30,10 @@ defmodule Cinex.Graph.ContentTypes do
       resolve &Rooms.all/3
     end
   end
+
+  object :artist do
+    field :id, :id
+    field :name, :string
+    field :imdb_url, :string
+  end
 end
