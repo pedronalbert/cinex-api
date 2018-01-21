@@ -6,8 +6,8 @@ defmodule Cinex.Repository.Customers do
   alias Cinex.Repo
   alias __MODULE__.Customer
 
-  def list() do
-    { :ok, Customer |> Repo.all }
+  def list do
+    {:ok, Customer |> Repo.all}
   end
 
   def create(attrs) do

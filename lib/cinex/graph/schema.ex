@@ -7,7 +7,7 @@ defmodule Cinex.Graph.Schema do
 
   import_types Cinex.Graph.ContentTypes
 
-  alias Cinex.Graph.Resolvers.{Customers, Cinemas}
+  alias Cinex.Graph.Resolvers.{Customers, Cinemas, Rooms}
 
   query do
     field :customers, list_of(:customer) do
@@ -44,6 +44,15 @@ defmodule Cinex.Graph.Schema do
       arg :name, non_null(:string)
 
       resolve &Cinemas.update/3
+    end
+
+    field :create_room, type: :room do
+      arg :name, non_null(:string)
+      arg :cols, non_null(:integer)
+      arg :rows, non_null(:integer)
+      arg :cinema_id, non_null(:integer)
+
+      resolve &Rooms.create/3
     end
   end
 end

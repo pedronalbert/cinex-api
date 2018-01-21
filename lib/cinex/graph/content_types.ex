@@ -11,4 +11,9 @@ defmodule Cinex.Graph.ContentTypes do
     field :id, :id
     field :name, :string
   end
+
+  object :room do
+    field :id, :id
+    field :name, :string
+  end
 end

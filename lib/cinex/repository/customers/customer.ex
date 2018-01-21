@@ -1,4 +1,6 @@
 defmodule Cinex.Repository.Customers.Customer do
+  alias Cinex.Repository.Rooms.Room
+
   use Cinex.Repository.Schema
 
   @castable_keys [:email, :password, :first_name, :last_name, :dni, :birthdate]
@@ -10,6 +12,7 @@ defmodule Cinex.Repository.Customers.Customer do
     field :last_name, :string
     field :dni, :string
     field :birthdate, :date
+    has_many :rooms, Room
   end
 
   def changeset(%__MODULE__{} = customer, attrs) do

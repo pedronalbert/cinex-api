@@ -23,4 +23,17 @@ defmodule Cinex.Repository.Cinemas do
 
     Repo.update(changeset)
   end
+
+  def test_creation do
+    require IEx
+    alias Ecto.Multi
+
+    Multi.new
+    |> Multi.insert(:cinema, Cinema.changeset(%Cinema{}, %{name: "Testingcito"}))
+    |> Multi.run(:seats, fn %{cinema: cinema} ->
+      IEx.pry
+      {:ok, %{}}
+    end)
+    |> Cinex.Repo.transaction
+  end
 end

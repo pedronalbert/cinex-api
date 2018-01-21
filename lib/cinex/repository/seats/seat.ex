@@ -1,20 +1,20 @@
-defmodule Cinex.Repository.Cinemas.Cinema do
+defmodule Cinex.Repository.Seats.Seat do
   use Cinex.Repository.Schema
 
   alias Cinex.Repository.Rooms.Room
 
-  @castable_keys [:name]
-  @required_keys [:name]
+  @castable_keys [:row, :col, :room_id]
+  @required_keys [:row, :col, :room_id]
 
-  schema "cinemas" do
-    field :name, :string
-    has_many :rooms, Room
+  schema "seats" do
+    field :col, :integer
+    field :row, :integer
+    belongs_to :room, Room
   end
 
   def changeset(%__MODULE__{} = cinema, attrs) do
     cinema
     |> cast(attrs, @castable_keys)
     |> validate_required(@required_keys)
-    |> unique_constraint(:name)
   end
 end

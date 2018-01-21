@@ -3,8 +3,8 @@ defmodule Cinex.Repo.Migrations.CreateSeats do
 
   def change do
     create table(:seats) do
-      add :row, :string
-      add :column, :integer
+      add :row, :integer
+      add :col, :integer
       add :room_id, references(:rooms)
     end
   end
