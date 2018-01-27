@@ -2,7 +2,6 @@ defmodule Cinex.Graph.Schema.Genre do
   use Absinthe.Schema.Notation
 
   import Kronky.Payload
-  import_types Kronky.ValidationMessageTypes
 
   alias Cinex.Graph.Resolvers.Genres
 

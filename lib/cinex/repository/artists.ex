@@ -11,14 +11,9 @@ defmodule Cinex.Repository.Artists do
   end
 
   def update(attrs) do
-    Artist
+    %Artist{}
     |> Repo.get(attrs.id)
     |> Artist.changeset(attrs)
     |> Repo.update()
-  end
-
-  def delete(id) do
-    Artist |> Repo.get(id) |> Repo.delete
-    {:ok, "Deleted"}
   end
 end

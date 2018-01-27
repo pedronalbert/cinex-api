@@ -4,14 +4,16 @@ defmodule Cinex.Graph.Schema do
   """
   use Absinthe.Schema
 
+  import_types Kronky.ValidationMessageTypes
+
   # Import Types
   import_types Cinex.Graph.ContentTypes
 
   # Import Schemas
   import_types Cinex.Graph.Schema.Genre
+  import_types Cinex.Graph.Schema.Artist
 
   # Import Queries
-  import_types Cinex.Graph.Queries.Artists
   import_types Cinex.Graph.Queries.Cinemas
   import_types Cinex.Graph.Queries.Customers
 
@@ -19,7 +21,6 @@ defmodule Cinex.Graph.Schema do
   import_types Cinex.Graph.Mutations.Cinemas
   import_types Cinex.Graph.Mutations.Customers
   import_types Cinex.Graph.Mutations.Rooms
-  import_types Cinex.Graph.Mutations.Artists
 
   query do
     import_fields :cinemas_queries

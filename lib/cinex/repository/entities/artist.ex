@@ -13,5 +13,6 @@ defmodule Cinex.Repository.Entities.Artist do
     artist
     |> cast(attrs, @castable_keys)
     |> validate_required(@required_keys)
+    |> unique_constraint(:name)
   end
 end

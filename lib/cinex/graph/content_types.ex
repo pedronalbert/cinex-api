@@ -31,12 +31,6 @@ defmodule Cinex.Graph.ContentTypes do
     end
   end
 
-  object :artist do
-    field :id, :id
-    field :name, :string
-    field :imdb_url, :string
-  end
-
   object :movie do
     field :id, :id
     field :name, :string

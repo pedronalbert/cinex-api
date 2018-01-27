@@ -6,5 +6,6 @@ defmodule Cinex.Repo.Migrations.CreateArtists do
       add :name, :string
       add :imdb_url, :string
     end
+    create unique_index(:artists, [:name])
   end
 end
