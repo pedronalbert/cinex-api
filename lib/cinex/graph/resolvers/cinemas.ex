@@ -2,25 +2,33 @@ defmodule Cinex.Graph.Resolvers.Cinemas do
   @moduledoc """
     Cinemas resolver
   """
-  require Logger
+  require Ecto.Query
 
   alias Cinex.Repo
   alias Cinex.Repository.Entities.Cinema
   alias Cinex.Repository.Cinemas
 
   def list(_parent, _args, _resolution) do
-    {:ok, Repo.all Cinema}
+    cinemas = Cinema
+    |> Ecto.Query.order_by(asc: :id)
+    |> Repo.all()
+
+    {:ok, cinemas}
   end
 
   def create(_parent, args, _resolution) do
-    Cinemas.create args
-  end
-
-  def delete(_parent, %{id: id}, _resolution) do
-    Cinemas.delete id
+    args
+    |> Cinemas.create
+    |> case do
+      {_, res} -> {:ok, res}
+    end
   end
 
   def update(_parent, args, _resolution) do
-    Cinemas.update args
+    args
+    |> Cinemas.update
+    |> case do
+      {_, res} -> {:ok, res}
+    end
   end
 end

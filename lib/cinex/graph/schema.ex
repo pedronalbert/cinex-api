@@ -12,13 +12,12 @@ defmodule Cinex.Graph.Schema do
   # Import Schemas
   import_types Cinex.Graph.Schema.Genre
   import_types Cinex.Graph.Schema.Artist
+  import_types Cinex.Graph.Schema.Cinema
 
   # Import Queries
-  import_types Cinex.Graph.Queries.Cinemas
   import_types Cinex.Graph.Queries.Customers
 
   # Import Mutations
-  import_types Cinex.Graph.Mutations.Cinemas
   import_types Cinex.Graph.Mutations.Customers
   import_types Cinex.Graph.Mutations.Rooms
 
