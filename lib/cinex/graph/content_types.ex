@@ -36,4 +36,17 @@ defmodule Cinex.Graph.ContentTypes do
     field :name, :string
     field :imdb_url, :string
   end
+
+  object :movie do
+    field :id, :id
+    field :name, :string
+    field :plot, :string
+    field :poster_url, :string
+    field :trailer_url, :string
+    field :duration, :integer
+    field :year, :integer
+    field :certificate, :string
+    field :imdb_rate, :integer
+    field :rotten_rate, :integer
+  end
 end

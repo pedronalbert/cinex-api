@@ -5,5 +5,7 @@ defmodule Cinex.Repo.Migrations.CreateGenres do
     create table(:genres) do
       add :name, :string
     end
+
+    create unique_index(:genres, [:name])
   end
 end
